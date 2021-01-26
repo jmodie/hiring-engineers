@@ -50,7 +50,7 @@ Once this is created, access the Dashboard from your Dashboard List in the UI:
 
 ## Final Question:
 
-The Datadog community has written a substantial number of high-quality integrations and libraries. Select one from [this page](https://docs.datadoghq.com/developers/libraries/). With this selection in mind, write a blog post that announces your selection and explains the benefits it offers our users/community. The post should cover installation, configuration, usage, and best practices along with code samples where applicable. You should also thank the contributor for their effort.
+The Datadog community has written a substantial number of high-quality integrations and libraries. Select one from [this page](https://docs.datadoghq.com/developers/libraries/). With this selection in mind, write a blog post that announces your selection and explains the benefits it offers our users/community. The post should show that you have a clear and in-depth understanding of the the technology by diving into installation, configuration, usage, and best practices along with code samples where applicable. You should also thank the contributor for their effort.
 
 ## References
 
