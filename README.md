@@ -21,7 +21,7 @@ You can utilize [any OS/host](https://app.datadoghq.com/account/settings#agent) 
 * Spin up a fresh Linux VM via Vagrant or another tool so you don’t run into any OS or dependency issues. To set up a Vagrant Ubuntu LTS VM, see the [instructions](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#vagrant).
 * Utilize a containerized approach with Docker for Linux and our dockerized Datadog Agent image.
 
-Once you are ready, sign up for a [two-week trial](https://app.datadoghq.com/signup) and select “Datadog Recruiting Candidate” in the **Company** field. 
+When you are ready, sign up for a [two-week trial](https://app.datadoghq.com/signup) and select “Datadog Recruiting Candidate” in the **Company** field. 
 The Datadog Agent should start reporting metrics from your local machine. 
 
 ## Exercise 1: Collecting Metrics
@@ -42,7 +42,7 @@ Utilize the Datadog API to create a Dashboard that contains:
 
 Please include the script you used to create your Dashboard in your submission.
 
-Once your dashboard is created, access the Dashboard from your Dashboard List.
+After you create your Dashboard, access the Dashboard from your Dashboard List.
 
 * Set the Dashboards's timeframe to the past 5 minutes.
 * Take a snapshot of this graph and use the @ notation to send it to yourself.
@@ -51,7 +51,7 @@ Once your dashboard is created, access the Dashboard from your Dashboard List.
 
 ## Final Exercise: Blog Post
 
-The Datadog community has written a substantial number of high-quality integrations and libraries on [this page](https://docs.datadoghq.com/developers/libraries/). 
+The Datadog community has documented a substantial number of high-quality integrations and libraries on [this page](https://docs.datadoghq.com/developers/libraries/). 
 
 Write a blog post that announces your topic and explains the benefits it offers our users/community. Thank the contributor for their efforts and include images, code samples, and diagrams where applicable. You can search [The Monitor](https://www.datadoghq.com/blog/) for past posts.
 
