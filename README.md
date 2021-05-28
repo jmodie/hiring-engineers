@@ -7,16 +7,15 @@ If you are applying to be a Techical Writer at [Datadog](https://www.datadoghq.c
 * Read the [prerequisites](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#prerequisites) and [references](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#references) before the exercises.
 * Fork this repo.
 * Complete your responses in the `answers.md` file of your forked repo.
-* Add links to your dashboard and screenshots inline with your responses when prompted.
+* Feel free to add links to your dashboard and screenshots inline with your responses.
 * Commit as much code as you need to support your responses.
-* Proofread your responses.
 * Create a pull request and submit the PR link in Greenhouse.
 
 If you have any questions, create an issue in this repository and contact Kaylyn Sigler.
 
 ## Prerequisites
 
-You can utilize [any OS/host](https://app.datadoghq.com/account/settings#agent) to complete this exercise. To setup your environment, use one of the following approaches:
+You can utilize [any OS/host](https://app.datadoghq.com/account/settings#agent) to complete this exercise. However, we recommend one of the following approaches:
 
 * Spin up a fresh Linux VM via Vagrant or another tool so you don’t run into any OS or dependency issues. To set up a Vagrant Ubuntu LTS VM, see the [instructions](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#vagrant).
 * Utilize a containerized approach with Docker for Linux and our dockerized Datadog Agent image.
@@ -51,9 +50,9 @@ After you create your Dashboard, access the Dashboard from your Dashboard List.
 
 ## Final Exercise: Blog Post
 
-The Datadog community has documented a substantial number of high-quality integrations and libraries on [this page](https://docs.datadoghq.com/developers/libraries/). 
+The Datadog community has documented a substantial number of [high-quality integrations and libraries](https://docs.datadoghq.com/developers/libraries/). Select one as a topic.
 
-Write a blog post that announces your topic and explains the benefits it offers our users/community. Thank the contributor for their efforts and include images, code samples, and diagrams where applicable. You can search [The Monitor](https://www.datadoghq.com/blog/) for past posts.
+Write a blog post that announces your topic and explains the benefits it offers our users/community. Thank the contributor for their efforts and include images, code samples, and diagrams where applicable.
 
 This blog post should demonstrate your ability to write about a new topic and dive into its configuration, usage, and best practices. 
 
