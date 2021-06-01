@@ -1,78 +1,80 @@
-If you are applying as a Tech Writer at [Datadog](https://www.datadoghq.com/) you are in the right spot.
+If you are applying to be a Techical Writer at [Datadog](https://www.datadoghq.com/), you are in the right spot.
 
 <img src="https://repository-images.githubusercontent.com/2967233/246a3700-b83c-11e9-9960-8b03925fc6f7" width="500" height="500" alt="Logo">
 
 ## Instructions
 
-If you have a question, create an issue in this repository or email us.
-
-To submit your answers:
-
+* Read the [prerequisites](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#prerequisites) and [references](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#references) before the exercises.
 * Fork this repo.
-* Answer the questions in answers.md
-* Commit as much code and images as you need to support your answers.
-* Submit a pull request.
-* Don't forget to include links to your dashboard(s), or, even better, links and screenshots. We recommend that you include your screenshots inline with your answers.
+* Complete your responses in the `answers.md` file of your forked repo.
+* Add links to your dashboard and screenshots inline with your responses.
+* Commit as much code as you need to support your responses.
+* Create a pull request and submit the PR link in Greenhouse.
 
-Don’t forget to read the [References](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#references)
+If you have any questions, create an issue in this repository or respond to the "Take Home Test from Datadog" email.
 
-## Prerequisites - Setup the environment
+## Prerequisites
 
 You can utilize [any OS/host](https://app.datadoghq.com/account/settings#agent) to complete this exercise. However, we recommend one of the following approaches:
 
-* Spin up a fresh Linux VM via Vagrant or other tools so that you don’t run into any OS or dependency issues. [Here are instructions](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#vagrant) for setting up a Vagrant Ubuntu LTS VM.
-* You can utilize a Containerized approach with Docker for Linux and our dockerized Datadog Agent image.
+* Spin up a fresh Linux VM via Vagrant or another tool so you don’t run into any OS or dependency issues. To set up a Vagrant Ubuntu LTS VM, see the [instructions](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#vagrant).
+* Utilize a containerized approach with Docker for Linux and our dockerized Datadog Agent image.
 
-Then, [sign up for Datadog](https://app.datadoghq.com/signup) (use “Datadog Recruiting Candidate” in the “Company” field), and get the Agent reporting metrics from your local machine.
+When you are ready, sign up for a [two-week trial](https://app.datadoghq.com/signup) and select “Datadog Recruiting Candidate” in the **Company** field. If you have already signed up for a trial, but it is running out, let us know by responding to the "Take Home Test from Datadog" email and we can extend it.
+The Datadog Agent should start reporting metrics from your local machine. 
 
-## Collecting Metrics:
+## Exercise 1: Collecting Metrics
 
-* Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
-* Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
-* Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
-* Change your check's collection interval so that it only submits the metric once every 45 seconds.
-* **Bonus Question** Can you change the collection interval without modifying the Python check file you created?
+* Add tags in the Agent config file. Include a screenshot of your host and its tags on the **Host Map** page in Datadog.
+* Install a database on your machine (such as MongoDB, MySQL, or PostgreSQL) and set up the respective Datadog integration for that database.
+* Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
+* Adjust your check's collection interval to submit the metric once every 45 seconds.
 
-## Visualizing Data:
+**Bonus Question**: Can you change the collection interval without modifying the Python check file you created?
+
+## Exercise 2: Visualizing Data
 
 Utilize the Datadog API to create a Dashboard that contains:
 
-* Your custom metric scoped over your host.
+* Your custom metric (`my_metric`) scoped over your host.
 * Any metric from the Integration on your Database with the anomaly function applied.
 
-Please be sure, when submitting your hiring challenge, to include the script that you've used to create this Dashboard.
+Please include the script you used to create your Dashboard in your submission.
 
-Once this is created, access the Dashboard from your Dashboard List in the UI:
+After you create your Dashboard, access the Dashboard from your Dashboard List.
 
-* Set the Dashboards's timeframe to the past 5 minutes
+* Set the Dashboards's timeframe to the past 5 minutes.
 * Take a snapshot of this graph and use the @ notation to send it to yourself.
-* **Bonus Question**: What is the Anomaly graph displaying?
 
-## Final Question:
+**Bonus Question**: What does the Anomaly graph display?
 
-The Datadog community has written a substantial number of high-quality integrations and libraries. Select one from [this page](https://docs.datadoghq.com/developers/libraries/). With this selection in mind, write a blog post that announces your selection and explains the benefits it offers our users/community. The post should show that you have a clear and in-depth understanding of the the technology by diving into installation, configuration, usage, and best practices along with code samples where applicable. You should also thank the contributor for their effort.
+## Final Exercise: Blog Post
+
+The Datadog community has documented a substantial number of [high-quality integrations and libraries](https://docs.datadoghq.com/developers/libraries/). Select one as a topic.
+
+Write a blog post that announces your topic and explains the benefits it offers our users/community. Thank the contributor for their efforts and include images, code samples, and diagrams where applicable.
+
+This blog post should demonstrate your ability to write about a new topic and dive into its configuration, usage, and best practices. 
 
 ## References
 
-### How to get started with Datadog
-* [Datadog getting started](https://docs.datadoghq.com/getting_started/)
-* [Guide to graphing in Datadog](http://docs.datadoghq.com/graphing/)
-* [Guide to monitoring in Datadog](https://docs.datadoghq.com/monitors/)
+### Getting Started in Datadog
+* [Getting Started](https://docs.datadoghq.com/getting_started/)
+* [Graphing](http://docs.datadoghq.com/graphing/)
+* [Monitoring](https://docs.datadoghq.com/monitors/)
 
 ### The Datadog Agent and Metrics
-
 * [Guide to the Agent](http://docs.datadoghq.com/agent/)
-* [Datadog Docker-image repo](https://hub.docker.com/r/datadog/docker-dd-agent/)
-* [Writing an Agent check](https://docs.datadoghq.com/developers/write_agent_check/)
+* [Datadog Docker-image Repo](https://hub.docker.com/r/datadog/docker-dd-agent/)
+* [Writing an Agent Check](https://docs.datadoghq.com/developers/write_agent_check/)
 * [Datadog API](https://docs.datadoghq.com/api/)
 
 ### APM
-* [Datadog Tracing Docs](https://docs.datadoghq.com/tracing)
-* [Flask Introduction](http://flask.pocoo.org/docs/0.12/quickstart/)
+* [Datadog Tracing](https://docs.datadoghq.com/tracing)
+* [Introduction to Flask](http://flask.pocoo.org/docs/0.12/quickstart/)
 
 ### Vagrant
  * [Setting Up Vagrant](https://www.vagrantup.com/intro/getting-started/)
 
-### Other questions:
-
+### Questions
 * [Datadog Help Center](https://help.datadoghq.com/hc/en-us)
