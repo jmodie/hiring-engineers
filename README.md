@@ -20,7 +20,7 @@ You can utilize [any OS/host](https://app.datadoghq.com/account/settings#agent) 
 * Spin up a fresh Linux VM via Vagrant or another tool so you don’t run into any OS or dependency issues. To set up a Vagrant Ubuntu LTS VM, see the [instructions](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#vagrant).
 * Utilize a containerized approach with Docker for Linux and our dockerized Datadog Agent image.
 
-When you are ready, sign up for a [two-week trial](https://app.datadoghq.com/signup) and select “Datadog Recruiting Candidate” in the **Company** field. 
+When you are ready, sign up for a [two-week trial](https://app.datadoghq.com/signup) and select “Datadog Recruiting Candidate” in the **Company** field. If you have already signed up for a trial, but it is running out, let us know by responding to the "Take Home Test from Datadog" email and we can extend it.
 The Datadog Agent should start reporting metrics from your local machine. 
 
 ## Exercise 1: Collecting Metrics
