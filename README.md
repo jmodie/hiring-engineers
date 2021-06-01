@@ -11,7 +11,7 @@ If you are applying to be a Techical Writer at [Datadog](https://www.datadoghq.c
 * Commit as much code as you need to support your responses.
 * Create a pull request and submit the PR link in Greenhouse.
 
-If you have any questions, create an issue in this repository and contact Kaylyn Sigler.
+If you have any questions, create an issue in this repository or respond to the "Take Home Test from Datadog" email.
 
 ## Prerequisites
 
