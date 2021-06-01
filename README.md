@@ -7,7 +7,7 @@ If you are applying to be a Techical Writer at [Datadog](https://www.datadoghq.c
 * Read the [prerequisites](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#prerequisites) and [references](https://github.com/jeremy-lq/hiring-engineers/blob/tech-writer/README.md#references) before the exercises.
 * Fork this repo.
 * Complete your responses in the `answers.md` file of your forked repo.
-* Feel free to add links to your dashboard and screenshots inline with your responses.
+* Add links to your dashboard and screenshots inline with your responses.
 * Commit as much code as you need to support your responses.
 * Create a pull request and submit the PR link in Greenhouse.
 
