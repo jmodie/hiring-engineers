@@ -2,11 +2,11 @@
 
  ## Setup
  1. [Create a Linux VM](https://learn.hashicorp.com/tutorials/vagrant/getting-started-index?in=vagrant/getting-started).
- 1. Perform one-step install of Datadog Agent.  In a terminal, run the following command:
+ 2. Perform one-step install of Datadog Agent.  In a terminal, run the following command:
 
  `DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=my_key_value DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"`
 
- 1. Access Datadog via browser: 
+ 3. Access Datadog via browser: 
    `https://app.datadoghq.com/account/settings`
     and get familiar with the UI.
 
@@ -15,14 +15,14 @@
  ## Add tags in the Agent config file
 
  1. Edit the configuration file for the Datadog Agent `/etc/datadog-agent/datadog.yaml`.
- 1. Uncomment the `tags` line.
- 1. Add `jon:odonnell` under the `team:infra` tag. 
- 1. Save the file.
- 1. Restart the Agent.
+ 2. Uncomment the `tags` line.
+ 3. Add `jon:odonnell` under the `team:infra` tag. 
+ 4. Save the file.
+ 5. Restart the Agent.
    1. `sudo service datadog-agent stop`
    1. `sudo service datadog-agent start`
- 1. On the Datadog page in your browser, click **Infrastructure** > **Host Map**.  
- 1. Click the **vagrant** tile in the UI. The new tag `jon:odonnell` is visible under **Tags** > **Datadog**.
+ 6. On the Datadog page in your browser, click **Infrastructure** > **Host Map**.  
+ 6. Click the **vagrant** tile in the UI. The new tag `jon:odonnell` is visible under **Tags** > **Datadog**.
 
  ![Host Map showing custom tags](/img/inf_map.png)
 
@@ -31,9 +31,9 @@
 ## Install a database and set up the respective Datadog integration
 
  1. [Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) on VM.
- 1. In your browser, click **Integrations** > **Search**, then type `MongoDB`. 
- 1. Click the **+Install** button on the MongoDB tile, then click the **Configuration** tab.
- 1. Configure the MongoDB integration:
+ 2. In your browser, click **Integrations** > **Search**, then type `MongoDB`. 
+ 3. Click the **+Install** button on the MongoDB tile, then click the **Configuration** tab.
+ 4. Configure the MongoDB integration:
    1. Open `/etc/datadog-agent/conf.d/mongo.d# nano conf.yaml.example` and uncomment fields to configure the file as follows.
 
  ```
@@ -48,13 +48,13 @@
     options:
       authSource: admin
  ```
- 1. Save this file as `conf.yaml`.
- 1. Restart the Agent.
- 1. Navigate to your browser and click **Integrations** > **Integrations** to  Verify integration is installed and working.
+ 5. Save this file as `conf.yaml`.
+ 6. Restart the Agent.
+ 7. Navigate to your browser and click **Integrations** > **Integrations** to  Verify integration is installed and working.
 
  ![Integrations page showing MongoDB](/img/mongo_int_success.png)
 
- 1. Click **Dashboards** > **Dashboard List** > **MongoDB - Overview** and see initial MongoDB metrics.
+ 8. Click **Dashboards** > **Dashboard List** > **MongoDB - Overview** and see initial MongoDB metrics.
 
  ![Dashboard displaying intital MongoDB data](/img/mongo_dashboard.png)
 
@@ -63,7 +63,7 @@
 ## Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
 
   1. `cd /etc/datadog-agent/conf.d`.
-  1. Create new configuration file, using sample content found docs for reference.
+  2. Create new configuration file, using sample content found docs for reference.
 
  ``` 
  init_config:
@@ -73,34 +73,34 @@
 
  ```
 
-  1. Save the file as `custom_check.yaml`.  
-  1. `cd  ../checks.d`.
-  1. Create a new check file, using sample content found docs for reference. Following is a snippet from my check file:
+  3. Save the file as `custom_check.yaml`.  
+  4. `cd  ../checks.d`.
+  5. Create a new check file, using sample content found docs for reference. Following is a snippet from my check file:
  ```
   class CustomCheck(AgentCheck):
     def check(self, instance):
         self.gauge('my_metric', random.randint(0,1000), tags=['jon:odonnell'] + self.instance.get('tags', []))
  ```
-  1. Save file as `custom_check.py`.
-  1. Restart the Agent.
+  6. Save file as `custom_check.py`.
+  7. Restart the Agent.
 
 ## Adjust your check's collection interval to submit the metric once every 45 seconds.
  1. Open `/etc/datadog-agent/conf.d/custom_check.yaml`.  Change the value of `min_collection_interval` to `45`.  
- 1. Save the file.
- 1. Restart the Agent.
+ 2. Save the file.
+ 3. Restart the Agent.
 
 ## Bonus Question: Can you change the collection interval without modifying the Python check file you created?
 
  Change the interval by editing the value of `min_collection_interval` in `custom_check.yaml`, or via the UI:
  1. Click **Metrics** > **Summary**.
- 1. On the resulting Metrics Explorer page, type `my_metric` in the **Metric** field.
- 1. Click `my_metric` in the list.  
- 1. Click the **Edit** button.
- 1. Change the Value in the **Interval** field.
+ 2. On the resulting Metrics Explorer page, type `my_metric` in the **Metric** field.
+ 3. Click `my_metric` in the list.  
+ 4. Click the **Edit** button.
+ 5. Change the Value in the **Interval** field.
 
  ![Edit metric interval](/img/change_metric_interval_ui.png)
 
- 1. Click **Save**.
+ 6. Click **Save**.
 
 # Exercise 2: Visualizing Data
  ## Use the Datadog API to create a Dashboard
@@ -129,14 +129,14 @@
 ## Access the dashboard from your dashboard list
  1. In your browser, click **Dashboards** > **Dashboard List**.
 
- 1. Click **Writing Test Dashboard** to display the [dashboard](https://app.datadoghq.com/dashboard/zrx-iix-388/writing-test-dashboard?from_ts=1646936739648&to_ts=1647541539648&live=true).
+ 2. Click **Writing Test Dashboard** to display the [dashboard](https://app.datadoghq.com/dashboard/zrx-iix-388/writing-test-dashboard?from_ts=1646936739648&to_ts=1647541539648&live=true).
 
- 1. Expand the dropdown menu in the top right corner of the page that says **1h Past 1 Hour**.  Select **5m Past 5 Minutes** to change the timeframe of the dashboard.
+ 3. Expand the dropdown menu in the top right corner of the page that says **1h Past 1 Hour**.  Select **5m Past 5 Minutes** to change the timeframe of the dashboard.
 
- 1. Click the graph on the dashboard to expand the options menu.
- 1. Click **Send Snapshot**.  
- 1. Add a comment explaining the issue, and select the team member you want to notify.  
- 1. Click **Submit**.
+ 4. Click the graph on the dashboard to expand the options menu.
+ 5. Click **Send Snapshot**.  
+ 6. Add a comment explaining the issue, and select the team member you want to notify.  
+ 7. Click **Submit**.
  
  ![Snapshot email](/img/snapshot_email.png)
 
@@ -155,11 +155,11 @@
  ### Configure the Datadog OpenVPN Active User/Bandwith Check
  1.	Open `/etc/openvpn/openvpn.conf` and add the line:
  `management localhost 7505`.
- 1.	Save the file and restart OpenVPN. 
- 1.	In a terminal, run `telnet localhost 7505` to verify the OpenVPN Management interface is running. (You should see ``>INFO:OpenVPN Management Interface Version 1 -- type 'help' for more info’`) 
- 1.	Move `openvpn.yaml` to `/etc/dd-agent/conf.d/openvpn.yaml`.
- 1.	Move `openvpn.py` to `/etc/dd-agent/checks.d/openvpn.py`.
- 1.	Restart the Datadog Agent.
+ 2.	Save the file and restart OpenVPN. 
+ 3.	In a terminal, run `telnet localhost 7505` to verify the OpenVPN Management interface is running. (You should see ``>INFO:OpenVPN Management Interface Version 1 -- type 'help' for more info’`) 
+ 4.	Move `openvpn.yaml` to `/etc/dd-agent/conf.d/openvpn.yaml`.
+ 5.	Move `openvpn.py` to `/etc/dd-agent/checks.d/openvpn.py`.
+ 6.	Restart the Datadog Agent.
    1. `sudo service datadog-agent stop`
    1. `sudo service datadog-agent start`
 
