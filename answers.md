@@ -1,4 +1,4 @@
- # Writing Exercise 
+# Writing Exercise 
 
  ## Setup
  1. [Create a Linux VM](https://learn.hashicorp.com/tutorials/vagrant/getting-started-index?in=vagrant/getting-started).
@@ -10,7 +10,7 @@
    `https://app.datadoghq.com/account/settings`
     and get familiar with the UI.
 
- # Exercise 1: Collecting Metrics
+# Exercise 1: Collecting Metrics
 
  ## Add tags in the Agent config file
 
@@ -28,7 +28,7 @@
 
   Note: Tag `test:123`, added via the **Edit Tags** button, appears under the **User** field.
 
- ## Install a database and set up the respective Datadog integration
+## Install a database and set up the respective Datadog integration
 
  1. [Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) on VM.
  1. In your browser, click **Integrations** > **Search**, then type `MongoDB`. 
@@ -60,7 +60,7 @@
 
  Note: Link to my [MongoDB dashboard](https://app.datadoghq.com/dash/integration/13/mongodb---overview?from_ts=1647372118753&to_ts=1647372418753&live=true).
 
- ## Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
+## Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
 
   1. `cd /etc/datadog-agent/conf.d`.
   1. Create new configuration file, using sample content found docs for reference.
@@ -84,12 +84,12 @@
   1. Save file as `custom_check.py`.
   1. Restart the Agent.
 
- ## Adjust your check's collection interval to submit the metric once every 45 seconds.
+## Adjust your check's collection interval to submit the metric once every 45 seconds.
  1. Open `/etc/datadog-agent/conf.d/custom_check.yaml`.  Change the value of `min_collection_interval` to `45`.  
  1. Save the file.
  1. Restart the Agent.
 
- ## Bonus Question: Can you change the collection interval without modifying the Python check file you created?
+## Bonus Question: Can you change the collection interval without modifying the Python check file you created?
 
  Change the interval by editing the value of `min_collection_interval` in `custom_check.yaml`, or via the UI:
  1. Click **Metrics** > **Summary**.
@@ -102,7 +102,7 @@
 
  1. Click **Save**.
 
- # Exercise 2: Visualizing Data
+# Exercise 2: Visualizing Data
  ## Use the Datadog API to create a Dashboard
 
  cURL command used to create dashboard:
@@ -126,7 +126,7 @@
  }' "https://api.datadoghq.com/api/v1/dash?api_key=abc123&application_key=abc123"
  ```
 
- ## Access the dashboard from your dashboard list
+## Access the dashboard from your dashboard list
  1. In your browser, click **Dashboards** > **Dashboard List**.
 
  1. Click **Writing Test Dashboard** to display the [dashboard](https://app.datadoghq.com/dashboard/zrx-iix-388/writing-test-dashboard?from_ts=1646936739648&to_ts=1647541539648&live=true).
@@ -140,11 +140,11 @@
  
  ![Snapshot email](/img/snapshot_email.png)
 
- ### Bonus Question: What does the Anomaly graph display?
+### Bonus Question: What does the Anomaly graph display?
 
  A gray band showing the expected  range based on past data.  If data charts outside of this gray band, that would indicate a possible issue.  This seems like a nice feature for being able to quickly spot abnormal data.
 
- # Exercise 3: Blog Post
+# Exercise 3: Blog Post
 
  ## Monitor [OpenVPN](https://openvpn.net/) with Datadog!
 
