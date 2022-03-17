@@ -1,18 +1,18 @@
-# Writing Exercise 
+ # Writing Exercise 
 
-## Setup
+ ## Setup
  1. [Create a Linux VM](https://learn.hashicorp.com/tutorials/vagrant/getting-started-index?in=vagrant/getting-started).
  1. Perform one-step install of Datadog Agent.  In a terminal, run the following command:
 
- `DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=9010daf415ecb54c0ca390778c2ec871 DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"`
+ `DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=my_key_value DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"`
 
  1. Access Datadog via browser: 
    `https://app.datadoghq.com/account/settings`
     and get familiar with the UI.
 
-# Exercise 1: Collecting Metrics
+ # Exercise 1: Collecting Metrics
 
-## Add tags in the Agent config file
+ ## Add tags in the Agent config file
 
  1. Edit the configuration file for the Datadog Agent `/etc/datadog-agent/datadog.yaml`.
  1. Uncomment the `tags` line.
@@ -28,7 +28,7 @@
 
   Note: Tag `test:123`, added via the **Edit Tags** button, appears under the **User** field.
 
-## Install a database and set up the respective Datadog integration
+ ## Install a database and set up the respective Datadog integration
 
  1. [Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) on VM.
  1. In your browser, click **Integrations** > **Search**, then type `MongoDB`. 
@@ -60,7 +60,7 @@
 
  Note: Link to my [MongoDB dashboard](https://app.datadoghq.com/dash/integration/13/mongodb---overview?from_ts=1647372118753&to_ts=1647372418753&live=true).
 
-## Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
+ ## Create a custom Agent check that submits a metric named "my_metric" with a random value between 0 and 1000.
 
   1. `cd /etc/datadog-agent/conf.d`.
   1. Create new configuration file, using sample content found docs for reference.
@@ -84,14 +84,14 @@
   1. Save file as `custom_check.py`.
   1. Restart the Agent.
 
-## Adjust your check's collection interval to submit the metric once every 45 seconds.
+ ## Adjust your check's collection interval to submit the metric once every 45 seconds.
  1. Open `/etc/datadog-agent/conf.d/custom_check.yaml`.  Change the value of `min_collection_interval` to `45`.  
  1. Save the file.
  1. Restart the Agent.
 
-## Bonus Question: Can you change the collection interval without modifying the Python check file you created?
+ ## Bonus Question: Can you change the collection interval without modifying the Python check file you created?
 
-Change the interval by editing the value of `min_collection_interval` in `custom_check.yaml`, or via the UI:
+ Change the interval by editing the value of `min_collection_interval` in `custom_check.yaml`, or via the UI:
  1. Click **Metrics** > **Summary**.
  1. On the resulting Metrics Explorer page, type `my_metric` in the **Metric** field.
  1. Click `my_metric` in the list.  
@@ -102,8 +102,8 @@ Change the interval by editing the value of `min_collection_interval` in `custom
 
  1. Click **Save**.
 
-# Exercise 2: Visualizing Data
-## Use the Datadog API to create a Dashboard
+ # Exercise 2: Visualizing Data
+ ## Use the Datadog API to create a Dashboard
 
  cURL command used to create dashboard:
 
@@ -126,7 +126,7 @@ Change the interval by editing the value of `min_collection_interval` in `custom
  }' "https://api.datadoghq.com/api/v1/dash?api_key=abc123&application_key=abc123"
  ```
 
-## Access the dashboard from your dashboard list
+ ## Access the dashboard from your dashboard list
  1. In your browser, click **Dashboards** > **Dashboard List**.
 
  1. Click **Writing Test Dashboard** to display the [dashboard](https://app.datadoghq.com/dashboard/zrx-iix-388/writing-test-dashboard?from_ts=1646936739648&to_ts=1647541539648&live=true).
@@ -140,18 +140,19 @@ Change the interval by editing the value of `min_collection_interval` in `custom
  
  ![Snapshot email](/img/snapshot_email.png)
 
-### Bonus Question: What does the Anomaly graph display?
+ ### Bonus Question: What does the Anomaly graph display?
 
  A gray band showing the expected  range based on past data.  If data charts outside of this gray band, that would indicate a possible issue.  This seems like a nice feature for being able to quickly spot abnormal data.
 
-# Exercise 3: Blog Post
+ # Exercise 3: Blog Post
 
-## Monitor [OpenVPN](https://openvpn.net/) with Datadog!
-With more workers than ever connecting to their office networks via VPN, knowing how many users are connected and how much bandwith they are utilizing has never been more important. A new [integration](https://github.com/byronwolfman/dd-openvpn) developed by Byron Wolfman lets you track key VPN data with Datadog. Use this integration so Datadog can alert you before facing frustrating VPN latency or network overload.
+ ## Monitor [OpenVPN](https://openvpn.net/) with Datadog!
 
-A second community member, Dennis Webb, has developed an [OpenVPN license tracking](https://github.com/denniswebb/datadog-openvpn) integration. You can easily track how many licenses are used and how many are available with this slick integration.
+ With more workers than ever connecting to their office networks via VPN, knowing how many users are connected and how much bandwith they are utilizing has never been more important. A new [integration](https://github.com/byronwolfman/dd-openvpn) developed by Byron Wolfman lets you track key VPN data with Datadog. Use this integration so Datadog can alert you before facing frustrating VPN latency or network overload.
 
-### Configure the Datadog OpenVPN Active User/Bandwith Check
+ A second community member, Dennis Webb, has developed an [OpenVPN license tracking](https://github.com/denniswebb/datadog-openvpn) integration. You can easily track how many licenses are used and how many are available with this slick integration.
+
+ ### Configure the Datadog OpenVPN Active User/Bandwith Check
  1.	Open `/etc/openvpn/openvpn.conf` and add the line:
  `management localhost 7505`.
  1.	Save the file and restart OpenVPN. 
@@ -162,9 +163,10 @@ A second community member, Dennis Webb, has developed an [OpenVPN license tracki
    1. `sudo service datadog-agent stop`
    1. `sudo service datadog-agent start`
 
-### Configure the License Tracking Integration
+ ### Configure the License Tracking Integration
  Run [`install.sh`](https://github.com/denniswebb/datadog-openvpn/blob/master/install.sh) and you are all set! Now you can track OpenVPN license usage in Datadog!
  
-#### Help us out OpenVPN users!
-These integrations could be extended to monitor additional OpenVPN metrics. Have one in mind? Check out our [Agent Integrations](https://datadoghq.dev/integrations-core/) instructions and consider filing a PR to help expand the coverage of these tools! 
-We've only tested them on Linux, but let us know if you've had success using them on another platform!
+ #### Help us out OpenVPN users!
+ These integrations could be extended to monitor additional OpenVPN metrics. Have one in mind? Check out our [Agent Integrations](https://datadoghq.dev/integrations-core/) instructions and consider filing a PR to help expand the coverage of these tools! 
+ 
+ We've only tested them on Linux, but let us know if you've had success using them on another platform!
